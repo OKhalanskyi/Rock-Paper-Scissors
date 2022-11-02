@@ -1,4 +1,33 @@
-let itemsArr = ['rock', 'paper', 'scissors'];
+const items = ["rock", "paper" , "scissors"]
+
+//scenarios
+//rockBeatPaper = false
+//rockBeatScissors = true
+//paperBeatRock = true
+//paperBeatScissors = false
+//scissorsBeatPaper = true
+//scissorsBeatRock = false
+
+function getComputerChoice() {
+    return items[Math.floor(Math.random()*items.length)];
+}
+
+function playRound(playerChoice, computerChoice = getComputerChoice()){
+    if (playerChoice===computerChoice){
+        return playRound(playerChoice, getComputerChoice())
+    }
+    if (playerChoice === "rock"){
+        return computerChoice !== "paper"
+    }
+    if (playerChoice === "paper"){
+        return computerChoice !== "scissors"
+    }
+    if (playerChoice === "scissors"){
+        return computerChoice !== "rock"
+    }
+}
+
+/*let itemsArr = ['rock', 'paper', 'scissors'];
 
  
 function getComputerChoice()
@@ -69,6 +98,7 @@ function playRound(playerSelection, computerSelection)
     }
 }
 
+
 function game()
 {
     let gamesRound = 0;
@@ -121,5 +151,6 @@ function game()
 }
 
 game();
+*/
 
 // console.log(playRound(getPlayerChoice(), getComputerChoice()));
